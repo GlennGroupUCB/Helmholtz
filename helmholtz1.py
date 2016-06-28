@@ -41,7 +41,7 @@ awg = {'4_0': 107., '3_0': 85., '2_0': 67.4, '1_0': 53.5, '1': 42.4, '2': 33.6, 
 		'33': 0.0254, '34': 0.0201, '35': 0.0160, '36': 0.0127, '37': 0.0100, '38': 0.00797,
 		'39': 0.00632, '40': 0.00501}  #American wire gauge (AWG) cross sectional area (mm^2)
 
-awg_od = collections.OrderedDict(sorted(awg.items()))  #This sort of works for ordering the dictionary.
+awg_od = collections.OrderedDict(sorted(awg.items(), key=lambda t: t[1]))
 
 
 
