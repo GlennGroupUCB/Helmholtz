@@ -50,6 +50,12 @@ B_0 = 65. * 10**-5.                                  #10x magnetic field of Eart
 I = 1.	                                             #Current through each solenoid (A)
 N = B_0 * 5 * np.sqrt(5) * r / (8 * mu_0 * mu_r * I) #Number of turns in each solenoid
 
+print "r =", r / 0.0254, "in"
+print "l =", l / 0.0254 / 12., "ft"
+print "B_0 =", B_0, "T"
+print "I =", I, "A"
+print "N =", N
+
 
 awg = {'4_0': 107., '3_0': 85., '2_0': 67.4, '1_0': 53.5, '1': 42.4, '2': 33.6, '3': 26.7,
 		'4': 21.2, '5': 16.8, '6': 13.3, '7': 10.5, '8': 8.37, '9': 6.63, '10': 5.26, '11': 4.17,
@@ -80,14 +86,14 @@ def Q_joule_heating(I, R):
 
 with open('helmholtz3.csv', 'wb') as csvfile:
 	writer = csv.writer(csvfile)
-	writer.writerow(['AWG', 'Cross-sectional Area (mm^2)', 'Number of Turns', 'Resistance (Ohm)', 'Inductance (H)', 'Magnetic Field (T)', 'Joule Heating (W)'])
+	writer.writerow(['AWG', 'Cross-sectional Area (mm^2)', 'Resistance (Ohm)', 'Inductance (H)', 'Magnetic Field (T)', 'Joule Heating (W)'])
 	for key, value in awg_od.iteritems():
 		A = value
 		resistance = R(l, A)
 		inductance = L(N, A, l)
 		magnetf = B_0
 		heating = Q_joule_heating(I, resistance)
-		writer.writerow([key, A, N, resistance, inductance, magnetf, heating])
+		writer.writerow([key, A, resistance, inductance, magnetf, heating])
 
 csvfile.close()
 
