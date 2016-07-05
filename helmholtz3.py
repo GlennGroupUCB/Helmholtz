@@ -2,7 +2,7 @@ import argparse
 import csv
 import collections
 import numpy as np 
-from termcolor import colored, cprint
+#from termcolor import colored, cprint
 #import matplotlib.pyplot as plt
 
 
@@ -48,7 +48,7 @@ r = 0.0254 * 13.                                     #Radius of each solenoid (m
 B_0 = 65. * 10**-5.                                  #10x magnetic field of Earth (T)
 I = 1.	                                             #Current through each solenoid (A)
 N = B_0 * 5 * np.sqrt(5) * r / (8 * mu_0 * mu_r * I) #Number of turns in each solenoid
-l = 2 * np.pi * r * N	                             #Length of wire (m)
+l = 2 * np.pi * r * N	                             #Length of wire for each solenoid (m)
 
 print "r =", r / 0.0254, "in"
 print "l =", l / 0.0254 / 12., "ft"
@@ -97,4 +97,5 @@ with open('helmholtz3.csv', 'wb') as csvfile:
 
 csvfile.close()
 
-print colored("\nOutput has been written to helmholtz3.csv.", 'green')
+#print colored("\nOutput has been written to helmholtz3.csv.", 'green')
+print "\nOutput has been written to helmholtz3.csv."
