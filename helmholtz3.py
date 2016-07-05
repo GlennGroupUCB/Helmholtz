@@ -45,10 +45,10 @@ r = args.r '''
 
 ####Important parameters
 r = 0.0254 * 13.                                     #Radius of each solenoid (m)
-l = 2 * np.pi * r	                                 #Length of wire (m)
 B_0 = 65. * 10**-5.                                  #10x magnetic field of Earth (T)
 I = 1.	                                             #Current through each solenoid (A)
 N = B_0 * 5 * np.sqrt(5) * r / (8 * mu_0 * mu_r * I) #Number of turns in each solenoid
+l = 2 * np.pi * r * N	                             #Length of wire (m)
 
 print "r =", r / 0.0254, "in"
 print "l =", l / 0.0254 / 12., "ft"
